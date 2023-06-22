@@ -1,13 +1,10 @@
-function Section() {
+function Section({ data }) {
+  const { mySectionInfo } = data;
+
   return (
     <section>
-      <h2>My section</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est mollitia
-        vero corrupti necessitatibus. Atque voluptatem, ducimus delectus eos
-        velit esse dolorum necessitatibus? Consequatur totam veniam esse
-        voluptatem, voluptatum soluta maiores.
-      </p>
+      <h2>{mySectionInfo?.title}</h2>
+      <p>{mySectionInfo?.description}</p>
     </section>
   );
 }

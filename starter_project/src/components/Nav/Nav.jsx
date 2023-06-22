@@ -1,15 +1,15 @@
 import "./nav.scss";
 
-function Nav() {
-  const menuItems = ["about", "benefits", "contacts"];
+function Nav({ data }) {
+  const { navItems } = data;
 
   return (
     <nav className="container">
       <ul>
-        {menuItems.map((item, index) => {
+        {navItems?.map((item, index) => {
           return (
-            <li key={`menuItem-${index}`}>
-              <a href={`#${item}`}>{item}</a>
+            <li key={`navItems-${index}`}>
+              <a href={`${item.url}`}>{item.title}</a>
             </li>
           );
         })}

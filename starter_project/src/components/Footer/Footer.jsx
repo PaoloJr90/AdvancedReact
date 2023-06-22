@@ -1,10 +1,12 @@
 import "./footer.scss";
 
-function Footer() {
+function Footer({ data }) {
+  const { myFooterInfo } = data;
+
   return (
     <footer>
       <div className="container">
-        <p>My footer</p>
+        <p>{myFooterInfo?.title}</p>
       </div>
     </footer>
   );
