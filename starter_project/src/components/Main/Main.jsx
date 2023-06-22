@@ -5,13 +5,13 @@ import Article from "../Article/Article";
 import Aside from "../Aside/Aside";
 import Hello from "../Hello/Hello";
 
-function Main() {
+function Main({ data }) {
   return (
     <main className="container">
       <Hello name="React" />
-      <Section />
-      <Aside />
-      <Article />
+      <Section data={data} />
+      <Aside data={data} />
+      <Article data={data} />
     </main>
   );
 }

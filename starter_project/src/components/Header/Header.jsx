@@ -1,13 +1,15 @@
 import "./header.scss";
 
-function Header() {
+function Header({ data }) {
+  const { headerInfo } = data;
+
   return (
     <header>
       <div className="container">
         <p className="logo">
-          <a href="/">Logo</a>
+          <a href={headerInfo?.link}>{headerInfo?.logo}</a>
         </p>
-        <p>React app</p>
+        <p>{headerInfo?.version}</p>
       </div>
     </header>
   );
