@@ -6,12 +6,13 @@ import Aside from "../Aside/Aside";
 import Hello from "../Hello/Hello";
 
 function Main({ data }) {
+  const { mySectionInfo, myAsideInfo, myArticleInfo } = data;
   return (
     <main className="container">
       <Hello name="React" />
-      <Section data={data} />
-      <Aside data={data} />
-      <Article data={data} />
+      <Section mySectionInfo={mySectionInfo} />
+      <Aside myAsideInfo={myAsideInfo} />
+      <Article myArticleInfo={myArticleInfo} />
     </main>
   );
 }

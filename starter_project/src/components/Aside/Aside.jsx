@@ -2,10 +2,8 @@ import promotion from "../../image/aside/promotion.jpg";
 
 import "./aside.scss";
 
-function Aside({ data }) {
-  const { myAsideInfo } = data;
-
-  console.log(myAsideInfo?.img?.description);
+function Aside({ myAsideInfo }) {
+  // console.log(myAsideInfo?.img?.description);
 
   return (
     <aside>

@@ -5,6 +5,7 @@ export const data = {
     { title: "contacts", url: "#contacts" },
   ],
   headerInfo: {
+    title: "Header",
     logo: "LOGO",
     version: "React App",
     link: "/",

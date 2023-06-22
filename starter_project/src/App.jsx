@@ -14,14 +14,18 @@ function App() {
     setData(data);
   }, []);
 
+  // const data = getData();
+
+  const { headerInfo, navItems, myFooterInfo } = data;
+
   return (
     <div className="page">
       <div className="header-wrap">
-        <Header data={data} />
-        <Nav data={data} />
+        <Header headerInfo={headerInfo} />
+        <Nav navItems={navItems} />
       </div>
       <Main data={data} />
-      <Footer data={data} />
+      <Footer myFooterInfo={myFooterInfo} />
     </div>
   );
 }

@@ -1,8 +1,6 @@
 import "./header.scss";
 
-function Header({ data }) {
-  const { headerInfo } = data;
-
+function Header({ headerInfo }) {
   return (
     <header>
       <div className="container">

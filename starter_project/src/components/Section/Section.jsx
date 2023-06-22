@@ -1,6 +1,4 @@
-function Section({ data }) {
-  const { mySectionInfo } = data;
-
+function Section({ mySectionInfo }) {
   return (
     <section>
       <h2>{mySectionInfo?.title}</h2>

@@ -1,8 +1,6 @@
 import "./footer.scss";
 
-function Footer({ data }) {
-  const { myFooterInfo } = data;
-
+function Footer({ myFooterInfo }) {
   return (
     <footer>
       <div className="container">

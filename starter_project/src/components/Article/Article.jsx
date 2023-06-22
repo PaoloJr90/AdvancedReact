@@ -1,6 +1,4 @@
-function Article({ data }) {
-  const { myArticleInfo } = data;
-
+function Article({ myArticleInfo }) {
   return (
     <article className="article-section">
       <h2>{myArticleInfo?.title}</h2>

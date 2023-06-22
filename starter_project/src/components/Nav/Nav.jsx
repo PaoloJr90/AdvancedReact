@@ -1,8 +1,6 @@
 import "./nav.scss";
 
-function Nav({ data }) {
-  const { navItems } = data;
-
+function Nav({ navItems }) {
   return (
     <nav className="container">
       <ul>
