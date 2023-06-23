@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/AdvancedReact/starter_project/static/css/main.9a78d12f.css",
+    "main.js": "/AdvancedReact/starter_project/static/js/main.fc61f19f.js",
+    "static/media/promotion.jpg": "/AdvancedReact/starter_project/static/media/promotion.3eff39eb1d6dfe80f6e4.jpg",
+    "index.html": "/AdvancedReact/starter_project/index.html",
+    "main.9a78d12f.css.map": "/AdvancedReact/starter_project/static/css/main.9a78d12f.css.map",
+    "main.fc61f19f.js.map": "/AdvancedReact/starter_project/static/js/main.fc61f19f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a78d12f.css",
+    "static/js/main.fc61f19f.js"
+  ]
+}
