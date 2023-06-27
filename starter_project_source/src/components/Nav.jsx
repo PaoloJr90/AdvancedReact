@@ -1,4 +1,4 @@
-import "./nav.scss";
+import "./styles/nav.scss";
 
 function Nav({ navItems }) {
   return (

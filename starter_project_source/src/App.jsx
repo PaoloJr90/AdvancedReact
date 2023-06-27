@@ -1,7 +1,7 @@
-import Header from "./components/Header/Header";
-import Nav from "./components/Nav/Nav";
-import Main from "./components/Main/Main";
-import Footer from "./components/Footer/Footer";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 import { getData } from "./common/getData";
 
@@ -13,8 +13,6 @@ function App() {
 
     setData(data);
   }, []);
-
-  // const data = getData();
 
   const { headerInfo, navItems, myFooterInfo } = data;
 

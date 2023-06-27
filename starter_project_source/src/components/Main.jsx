@@ -1,9 +1,9 @@
-import "./main.scss";
+import "./styles/main.scss";
 
-import Section from "../Section/Section";
-import Article from "../Article/Article";
-import Aside from "../Aside/Aside";
-import Hello from "../Hello/Hello";
+import Section from "./Section";
+import Article from "./Article";
+import Aside from "./Aside";
+import Hello from "./Hello";
 
 function Main({ data }) {
   const { mySectionInfo, myAsideInfo, myArticleInfo } = data;

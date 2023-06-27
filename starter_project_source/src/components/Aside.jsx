@@ -1,6 +1,6 @@
-import promotion from "../../image/aside/promotion.jpg";
+import promotion from "../image/aside/promotion.jpg";
 
-import "./aside.scss";
+import "./styles/aside.scss";
 
 function Aside({ myAsideInfo }) {
   // console.log(myAsideInfo?.img?.description);
