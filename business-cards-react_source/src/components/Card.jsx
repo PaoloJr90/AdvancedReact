@@ -1,6 +1,7 @@
 import { Component } from "react";
 import "./card.scss";
 
+
 class Card extends Component {
   constructor(props) {
     super(props);
