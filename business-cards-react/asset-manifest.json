@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/AdvancedReact/business-cards-react/static/css/main.02ec1d7c.css",
+    "main.js": "/AdvancedReact/business-cards-react/static/js/main.93a22e9a.js",
+    "static/media/card-bg.jpg": "/AdvancedReact/business-cards-react/static/media/card-bg.1778a3c982abaec86b66.jpg",
+    "index.html": "/AdvancedReact/business-cards-react/index.html",
+    "main.02ec1d7c.css.map": "/AdvancedReact/business-cards-react/static/css/main.02ec1d7c.css.map",
+    "main.93a22e9a.js.map": "/AdvancedReact/business-cards-react/static/js/main.93a22e9a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.02ec1d7c.css",
+    "static/js/main.93a22e9a.js"
+  ]
+}
