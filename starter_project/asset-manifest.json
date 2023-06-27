@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/AdvancedReact/starter_project/static/css/main.9a78d12f.css",
-    "main.js": "/AdvancedReact/starter_project/static/js/main.fc61f19f.js",
+    "main.css": "/AdvancedReact/starter_project/static/css/main.858f7b29.css",
+    "main.js": "/AdvancedReact/starter_project/static/js/main.0757bd57.js",
+    "static/media/matrix.jpg": "/AdvancedReact/starter_project/static/media/matrix.74b78a2bdf663f65bfb9.jpg",
     "static/media/promotion.jpg": "/AdvancedReact/starter_project/static/media/promotion.3eff39eb1d6dfe80f6e4.jpg",
     "index.html": "/AdvancedReact/starter_project/index.html",
-    "main.9a78d12f.css.map": "/AdvancedReact/starter_project/static/css/main.9a78d12f.css.map",
-    "main.fc61f19f.js.map": "/AdvancedReact/starter_project/static/js/main.fc61f19f.js.map"
+    "main.858f7b29.css.map": "/AdvancedReact/starter_project/static/css/main.858f7b29.css.map",
+    "main.0757bd57.js.map": "/AdvancedReact/starter_project/static/js/main.0757bd57.js.map"
   },
   "entrypoints": [
-    "static/css/main.9a78d12f.css",
-    "static/js/main.fc61f19f.js"
+    "static/css/main.858f7b29.css",
+    "static/js/main.0757bd57.js"
   ]
 }
