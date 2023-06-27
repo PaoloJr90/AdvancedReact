@@ -26,6 +26,11 @@ class Card extends Component {
 
   deleteCard = () => {
     this.setState({ show: false });
+    
+    const cards = document.querySelectorAll('.card');
+    if(cards.length === 1) {
+      document.querySelector('.message').style.display = 'inline';
+    }        
   };
 
   render() {

@@ -18,6 +18,7 @@ function App() {
             />
           );
         })}
+        <p className="message" style={{display: 'none', color: 'red', margin: '10px'}}>There's no business card any more</p>
       </div>
     </div>
   );
