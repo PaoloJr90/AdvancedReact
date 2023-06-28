@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/AdvancedReact/business-cards-react/static/css/main.02ec1d7c.css",
-    "main.js": "/AdvancedReact/business-cards-react/static/js/main.ecc708f4.js",
+    "main.js": "/AdvancedReact/business-cards-react/static/js/main.7b253c84.js",
     "static/media/card-bg.jpg": "/AdvancedReact/business-cards-react/static/media/card-bg.1778a3c982abaec86b66.jpg",
     "index.html": "/AdvancedReact/business-cards-react/index.html",
     "main.02ec1d7c.css.map": "/AdvancedReact/business-cards-react/static/css/main.02ec1d7c.css.map",
-    "main.ecc708f4.js.map": "/AdvancedReact/business-cards-react/static/js/main.ecc708f4.js.map"
+    "main.7b253c84.js.map": "/AdvancedReact/business-cards-react/static/js/main.7b253c84.js.map"
   },
   "entrypoints": [
     "static/css/main.02ec1d7c.css",
-    "static/js/main.ecc708f4.js"
+    "static/js/main.7b253c84.js"
   ]
 }
