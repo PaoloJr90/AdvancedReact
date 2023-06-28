@@ -1,6 +1,7 @@
 import { Component } from "react";
 import "./card.scss";
 
+
 class Card extends Component {
   constructor(props) {
     super(props);
@@ -25,6 +26,11 @@ class Card extends Component {
 
   deleteCard = () => {
     this.setState({ show: false });
+    
+    const cards = document.querySelectorAll('.card');
+    if(cards.length === 1) {
+      document.querySelector('.message').style.display = 'inline';
+    }        
   };
 
   render() {
