@@ -29,11 +29,44 @@ class Searcher extends Component {
 
                 }}            
             />
-            {/* <button type='button'
+            <button className="card__btn" 
+                style={{color: 'blue'}}
+                type='button'
                 onClick={() => {
-
+                  const sortedUsers = [...this.state.searchedUsers].sort((user1,user2) => {
+                    const name1 = user1.name.toLowerCase();
+                    const name2 = user2.name.toLowerCase();
+                
+                    if(name1 < name2) {
+                        return -1;
+                    } else if(name1 > name2) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }   
+                  })
+                  this.props.setSearchedUsers(sortedUsers);
                 }}
-            > Search</button> */}
+            > Asc</button>
+            <button className="card__btn" 
+                style={{color: 'blue'}}
+                type='button'
+                onClick={() => {                  
+                  const sortedUsers = [...this.state.searchedUsers].sort((user1,user2) => {
+                    const name1 = user1.name.toLowerCase();
+                    const name2 = user2.name.toLowerCase();
+                
+                    if(name1 < name2) {
+                        return 1;
+                    } else if(name1 > name2) {
+                        return -1;
+                    } else {
+                        return 0;
+                    }   
+                  })
+                  this.props.setSearchedUsers(sortedUsers);
+                }}
+            > Desc</button>            
         </div>
         );
       }
