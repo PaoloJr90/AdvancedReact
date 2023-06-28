@@ -1,5 +1,4 @@
 import { Component } from "react";
-
 import "./card.scss";
 
 class Card extends Component {
@@ -10,7 +9,7 @@ class Card extends Component {
       position: "Not Specified",
       phone: "Not Specified",
       email: "Not Specified",
-      photo: "./assets/image/no-photo.png",
+      photo: "/AdvancedReact/business-cards-react/assets/image/no-photo.png",
       show: true,
     };
   }
