@@ -1,6 +1,6 @@
 import { Component } from "react";
+import { BsStar, BsStarFill } from "react-icons/bs";
 import "./card.scss";
-
 
 class Card extends Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class Card extends Component {
       email: "Not Specified",
       photo: "/AdvancedReact/business-cards-react/assets/image/no-photo.png",
       show: true,
+      isFavorite: false,
     };
   }
 
@@ -26,14 +27,21 @@ class Card extends Component {
 
   deleteCard = () => {
     this.setState({ show: false });
-    
-    const cards = document.querySelectorAll('.card');
-    if(cards.length === 1) {
-      document.querySelector('.message').style.display = 'inline';
-    }        
+
+    const cards = document.querySelectorAll(".card");
+    if (cards.length === 1) {
+      document.querySelector(".message").style.display = "inline";
+    }
+  };
+
+  toggleFavorite = () => {
+    this.setState((prevState) => ({
+      isFavorite: !prevState.isFavorite,
+    }));
   };
 
   render() {
+    const starIcon = this.state.isFavorite ? <BsStarFill /> : <BsStar />;
     return (
       this.state.show && (
         <div className="card">
@@ -45,12 +53,15 @@ class Card extends Component {
           <a className="card__phone" href={`tel:${this.state.phone}`}>
             {this.state.phone}
           </a>
-          <a className="card__mail" href="mailto:some@website">
+          <a className="card__mail" href={` mailto: ${this.state.email} `}>
             {this.state.email}
           </a>
           <button className="card__btn" onClick={this.deleteCard}>
             Delete
           </button>
+          <a className="card__favorite" onClick={this.toggleFavorite}>
+            {starIcon}
+          </a>
         </div>
       )
     );

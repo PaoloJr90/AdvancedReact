@@ -73,6 +73,14 @@
     }
   }
 
+  &__favorite svg {
+    position: absolute;
+    stroke: none;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+  }
+
   &::after {
     content: "";
     position: absolute;
