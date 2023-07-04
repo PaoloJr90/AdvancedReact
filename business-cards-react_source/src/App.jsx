@@ -3,6 +3,7 @@ import Searcher from "./components/Seacher";
 import { usersData } from "./common/userData";
 import { useState } from "react";
 import { Helmet } from "react-helmet";
+import CardsContext from './components/CardsContext';
 
 function App() {
   const [searchedUsers, setSearchedUsers] = useState(usersData);
@@ -33,6 +34,7 @@ function App() {
           {usersData.length === 0 && "Looks like you don't have the cards..."}
           {searchedUsers.map((user, index) => {
             return (
+              <CardsContext.Provider key={`usersUpdate-${index}`} value={{searchedUsers, setSearchedUsers}}>
               <Card
                 key={`user-${index}`}
                 name={user.name}
@@ -40,7 +42,8 @@ function App() {
                 phone={user.phone}
                 email={user.email}
               />
-            );
+             </CardsContext.Provider>
+            );            
           })}
           <p
             className="message"

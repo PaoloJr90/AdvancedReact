@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { BsStar, BsStarFill } from "react-icons/bs";
 import "./card.scss";
+import EditCard from "./EditCard";
 
 class Card extends Component {
   constructor(props) {
@@ -40,12 +41,25 @@ class Card extends Component {
     }));
   };
 
+  handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({...this.state, [name]: value})
+  }  
+
   render() {
     const starIcon = this.state.isFavorite ? <BsStarFill /> : <BsStar />;
     return (
-      this.state.show && (
+      <>
+      {this.state.show && (
         <div className="card">
-          <div className="card__img">
+          <div className="card__img"
+                onClick={() => {
+                  this.setState({...this.state
+                    , show: !this.state.show
+                    ,isPopupOpen: !this.state.isPopupOpen})
+                }}             
+          >
             <img src={this.state.photo} alt="photo" />
           </div>
           <p className="card__name">{this.state.name}</p>
@@ -63,7 +77,62 @@ class Card extends Component {
             {starIcon}
           </a>
         </div>
-      )
+      )}
+      {
+          this.state.isPopupOpen && <EditCard searchedUsers={this.props.searchedUsers} setSearchedUsers={this.props.setSearchedUsers} updateUser={this.state}/>  
+      }         
+      {/* {
+        this.state.isPopupOpen && (
+          <div className="card" style={{zIndex: 9999}}>
+               <div className="card__img">
+                  <img src={this.state.photo} alt="photo"/>
+              </div>
+          <form style={{display:'grid',gridTemplateColumns:'1fr 1fr',gridGap:'1rem'}}>
+
+              <label name='name'>Name:</label>
+              <input name='name' type="text" value={this.state.name} onChange={this.handleChange}/>
+              
+              <label name='position'>Position:</label>
+              <input name='position' type="text" value={this.state.position} onChange={this.handleChange}/>
+                  
+              <label name='phone'>Phone:</label>
+              <input name='phone' type="text"  value={this.state.phone} onChange={this.handleChange}/>
+              
+              <label name='email'>Email: </label>
+              <input name='email' type="text"  value={this.state.email} onChange={this.handleChange}/>
+  
+              <button className="card__btn" onClick={() => {
+                  const newUsers = this.props.searchedUsers?.filter((user) => {
+                    const fullName = `${user.name}`;
+                    if (
+                      fullName
+                        .toLowerCase()
+                        .replace(" ", "")
+                        .includes(this.state.searchText.replace(" ", ""))
+                    ) {
+                      return true;
+                    }
+                    return false;
+                  });
+                  this.props.setSearchedUsers(newUsers);                
+              }}>
+                  Update
+              </button> 
+              <button style={{marginLeft:'10px'}} className="card__btn" 
+                  onClick={() => {
+                      this.setState({
+                          ...this.state,
+                          isPopupOpen: false,
+                      })
+                      setSearchedUsers
+                  }}
+              >
+                  Cancel
+              </button>
+          </form>
+      </div>          
+        )}       */}
+      </>
     );
   }
 }
