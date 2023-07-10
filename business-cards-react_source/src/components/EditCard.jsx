@@ -1,74 +1,77 @@
-import React, { Component } from 'react'
+import React, { Component, useState,useContext } from 'react'
+import { useImmer } from "use-immer";
 import './popupCard.scss'
 import CardsContext from './CardsContext';
 
-class EditCard extends Component {
-
-    constructor(props) {
-        super(props);
-        const {updateUser} = props;
-
-        this.state = {
-            name: updateUser.name,
-            position: updateUser.position,
-            phone: updateUser.phone,
-            email: updateUser.email,
+function EditCard ({showCard}) {
+    const{user, searchedUsers, updatedCardList} = useContext(CardsContext);
+    const [state, setState] = useImmer({
+            id: user.id,
+            name: user.name,
+            position: user.position,
+            phone: user.phone,
+            email: user.email,
             photo: "/AdvancedReact/business-cards-react/assets/image/no-photo.png",
-            isPopupOpen: true,            
-            // searchedUsers: updateUser.searchedUsers,
-            // setSearchedUsers: updateUser.setSearchedUsers,
-        }
-    }
+            isPopupOpen: true,         
+    })
 
-    handleChange = (event) => {
+    const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        this.setState({...this.state, [name]: value})
+        setState({...state, [name]: value})
     }    
 
-    render() {
+   
         return (
           
             <div className="card" style={{zIndex: 9999}}>
             <div className="card__img">
-               <img src={this.state.photo} alt="photo"/>
+               <img src={state.photo} alt="photo"/>
            </div>
        <form style={{display:'grid',gridTemplateColumns:'1fr 1fr',gridGap:'1rem'}}>
 
            <label name='name'>Name:</label>
-           <input name='name' type="text" value={this.state.name} onChange={this.handleChange}/>
+           <input name='name' type="text" value={state.name} onChange={handleChange}/>
            
            <label name='position'>Position:</label>
-           <input name='position' type="text" value={this.state.position} onChange={this.handleChange}/>
+           <input name='position' type="text" value={state.position} onChange={handleChange}/>
                
            <label name='phone'>Phone:</label>
-           <input name='phone' type="text"  value={this.state.phone} onChange={this.handleChange}/>
+           <input name='phone' type="text"  value={state.phone} onChange={handleChange}/>
            
            <label name='email'>Email: </label>
-           <input name='email' type="text"  value={this.state.email} onChange={this.handleChange}/>
+           <input name='email' type="text"  value={state.email} onChange={handleChange}/>
            <CardsContext.Consumer>  
-            {({searchedUsers, setSearchedUsers}) => (
-                <button className="card__btn" onClick={() => {
+            {({searchedUsers, updatedCardList}) => (
+                <button className="card__btn" onClick={(e) => {
+                    e.preventDefault();
                     const newUsers = searchedUsers?.map((oldUser) => {
-                    if(this.state?.email === oldUser.email) {
-                    return this.state;
+                    if(state?.id === oldUser.id) {
+                        return state;
                     }
-                    return oldUser ;          
-                    });
-                    console.log('newUsers', newUsers)                    
-                    setSearchedUsers(newUsers);                
+                        return oldUser ;          
+                    });                  
+ 
+                    setState((draft) =>{
+                        draft.isPopupOpen = false
+                    })          
+                    console.log('state.isPopupOpen', state.isPopupOpen)
+                    showCard();
+                    updatedCardList(newUsers);                       
                 }}>
                     Update
                 </button> 
             )}
            </CardsContext.Consumer>
-           <button style={{marginLeft:'10px'}} className="card__btn" 
-               onClick={() => {
-                   this.setState({
-                       ...this.state,
-                       isPopupOpen: false,
-                   })
-                   
+           <button style={{marginLeft:'10px'}} 
+               className="card__btn" 
+               onClick={(event) => {
+                   event.preventDefault();
+                   setState((draft) =>{
+                    draft.isPopupOpen = false
+                    })  
+                   console.log('this.state', state)
+                   showCard();
                }}
            >
                Cancel
@@ -77,7 +80,7 @@ class EditCard extends Component {
             </div>
            
         )
-    }
+   
 }
 
 export default EditCard

@@ -1,5 +1,6 @@
 export const usersData = [
   {
+    id: 1,
     name: "John Wick",
     position: "Frontend",
     phone: "+12345678901",
@@ -7,6 +8,7 @@ export const usersData = [
     photo: "../public/no-photo.png",
   },
   {
+    id: 2,
     name: "Dr. Gregory House",
     position: "Doctor",
     phone: "+12345678901",
@@ -14,6 +16,7 @@ export const usersData = [
     photo: "../public/no-photo.png",
   },
   {
+    id: 3,
     name: "Sherlock Holmes",
     position: "Detective",
     phone: "+12345678901",
@@ -21,6 +24,7 @@ export const usersData = [
     photo: "../public/no-photo.png",
   },
   {
+    id: 4,
     name: "Eliott Alderson",
     position: "Hacker",
     phone: "+12345678901",
@@ -28,6 +32,7 @@ export const usersData = [
     photo: "../public/no-photo.png",
   },
   {
+    id: 5,
     name: "Bruce Wayne",
     position: "Batman",
     phone: "+12345678901",
@@ -35,6 +40,7 @@ export const usersData = [
     photo: "../public/no-photo.png",
   },
   {
+    id: 6,
     name: "Tony Stark",
     position: "Iron Man",
     phone: "+12345678901",
@@ -42,6 +48,7 @@ export const usersData = [
     photo: "../public/no-photo.png",
   },
   {
+    id: 7,
     name: "Ada Lovelace",
     position: "Programmer",
     phone: "+12345678901",
@@ -49,6 +56,7 @@ export const usersData = [
     photo: "../public/no-photo.png",
   },
   {
+    id: 8,
     name: "Marie Curie",
     position: "Radiologist",
     phone: "+12345678901",
@@ -56,6 +64,7 @@ export const usersData = [
     photo: "../public/no-photo.png",
   },
   {
+    id: 9,
     name: "Alan Turing",
     position: "Mathematician",
     phone: "+12345678901",

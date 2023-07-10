@@ -1,15 +1,10 @@
-import { Component } from "react";
+import { Component, useContext } from "react";
+import CardsContext from "./CardsContext";
 
-class Searcher extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchText: "",
-      searchedUsers: this.props.searchedUsers,
-    };
-  }
+function Searcher()  {
 
-  render() {
+    const {searchedUsers, updatedCardList} = useContext(CardsContext);
+
     return (
       <div>
         <input
@@ -23,20 +18,20 @@ class Searcher extends Component {
             marginRight: "1.5rem",
           }}
           onChange={(event) => {
-            this.state.searchText = event.target.value.toLowerCase();
-            const newUsers = this.state.searchedUsers?.filter((user) => {
+            const searchText = event.target.value.toLowerCase();
+            const newUsers = searchedUsers?.filter((user) => {
               const fullName = `${user.name}`;
               if (
                 fullName
                   .toLowerCase()
                   .replace(" ", "")
-                  .includes(this.state.searchText.replace(" ", ""))
+                  .includes(searchText.replace(" ", ""))
               ) {
                 return true;
               }
               return false;
             });
-            this.props.setSearchedUsers(newUsers);
+            updatedCardList(newUsers);
           }}
         />
         <label>Sort </label>
@@ -45,7 +40,7 @@ class Searcher extends Component {
           style={{ color: "blue" }}
           type="button"
           onClick={() => {
-            const sortedUsers = [...this.state.searchedUsers].sort(
+            const sortedUsers = searchedUsers?.sort(
               (user1, user2) => {
                 const name1 = user1.name.toLowerCase();
                 const name2 = user2.name.toLowerCase();
@@ -59,7 +54,7 @@ class Searcher extends Component {
                 }
               }
             );
-            this.props.setSearchedUsers(sortedUsers);
+            updatedCardList(sortedUsers);
           }}
         >
           {" "}
@@ -70,7 +65,7 @@ class Searcher extends Component {
           style={{ color: "blue" }}
           type="button"
           onClick={() => {
-            const sortedUsers = [...this.state.searchedUsers].sort(
+            const sortedUsers = searchedUsers?.sort(
               (user1, user2) => {
                 const name1 = user1.name.toLowerCase();
                 const name2 = user2.name.toLowerCase();
@@ -84,7 +79,7 @@ class Searcher extends Component {
                 }
               }
             );
-            this.props.setSearchedUsers(sortedUsers);
+            updatedCardList(sortedUsers);
           }}
         >
           {" "}
@@ -92,7 +87,6 @@ class Searcher extends Component {
         </button>
       </div>
     );
-  }
 }
 
 export default Searcher;
