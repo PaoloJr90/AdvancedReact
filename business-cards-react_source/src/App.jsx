@@ -1,9 +1,9 @@
 import Card from "./components/Card";
-import Searcher from "./components/Seacher";
+import Searcher from "./components/Searcher";
 import { usersData } from "./common/userData";
 import { useState } from "react";
 import { Helmet } from "react-helmet";
-import CardsContext from './components/CardsContext';
+import CardsContext from "./components/CardsContext";
 
 function App() {
   const [searchedUsers, setSearchedUsers] = useState(usersData);
@@ -29,32 +29,37 @@ function App() {
           ></link>
           <title>Business Cards</title>
         </Helmet>
-       
+
         <br />
-        <CardsContext.Provider value={{searchedUsers, updatedCardList, users, setUsers}}>
-        <Searcher
-          searchedUsers={searchedUsers}
-          setSearchedUsers={setSearchedUsers}
-          users={users}
-          setUsers={setUsers}
-        />
-      </CardsContext.Provider> 
+        <CardsContext.Provider
+          value={{ searchedUsers, updatedCardList, users, setUsers }}
+        >
+          <Searcher
+            searchedUsers={searchedUsers}
+            setSearchedUsers={setSearchedUsers}
+            users={users}
+            setUsers={setUsers}
+          />
+        </CardsContext.Provider>
         <h1>Business Cards:</h1>
         <div className="wrapper">
           {usersData.length === 0 && "Looks like you don't have the cards..."}
           {searchedUsers.map((user, index) => {
             return (
-              <CardsContext.Provider key={`usersUpdate-${index}`} value={{user,searchedUsers, updatedCardList}}>
-              <Card
-                key={`user-${index}`}
-                id={user.id}
-                name={user.name}
-                position={user.position}
-                phone={user.phone}
-                email={user.email}
-              />
-            </CardsContext.Provider> 
-            );            
+              <CardsContext.Provider
+                key={`usersUpdate-${index}`}
+                value={{ user, searchedUsers, updatedCardList }}
+              >
+                <Card
+                  key={`user-${index}`}
+                  id={user.id}
+                  name={user.name}
+                  position={user.position}
+                  phone={user.phone}
+                  email={user.email}
+                />
+              </CardsContext.Provider>
+            );
           })}
           <p
             className="message"
@@ -64,9 +69,7 @@ function App() {
           </p>
         </div>
       </div>
-
     </>
-
   );
 }
 
