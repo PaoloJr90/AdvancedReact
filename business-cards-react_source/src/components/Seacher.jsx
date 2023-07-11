@@ -1,9 +1,28 @@
-import { Component, useContext } from "react";
+import { Component, useContext, useEffect,useState } from "react";
 import CardsContext from "./CardsContext";
 
 function Searcher()  {
 
     const {searchedUsers, updatedCardList} = useContext(CardsContext);
+    const {users, setUsers} = useContext(CardsContext);
+    const [searchData, setSearch] = useState("");
+
+    useEffect(() => {
+      const searchText = searchData.toLowerCase();
+      const newUsers = users?.filter((user) => {
+        const fullName = `${user.name}`;
+        if (
+          fullName
+            .toLowerCase()
+            .replace(" ", "")
+            .includes(searchText.replace(" ", ""))
+        ) {
+          return true;
+        }
+        return false;
+      });
+      updatedCardList(newUsers);
+    },[searchData])
 
     return (
       <div>
@@ -18,20 +37,7 @@ function Searcher()  {
             marginRight: "1.5rem",
           }}
           onChange={(event) => {
-            const searchText = event.target.value.toLowerCase();
-            const newUsers = searchedUsers?.filter((user) => {
-              const fullName = `${user.name}`;
-              if (
-                fullName
-                  .toLowerCase()
-                  .replace(" ", "")
-                  .includes(searchText.replace(" ", ""))
-              ) {
-                return true;
-              }
-              return false;
-            });
-            updatedCardList(newUsers);
+            setSearch(event.target.value);
           }}
         />
         <label>Sort </label>

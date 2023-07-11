@@ -7,9 +7,9 @@ import CardsContext from './components/CardsContext';
 
 function App() {
   const [searchedUsers, setSearchedUsers] = useState(usersData);
+  const [users, setUsers] = useState(usersData);
 
   const updatedCardList = (newCardList) => {
-    console.log("in App newCardList..", newCardList)
     setSearchedUsers([...newCardList]);
   };
 
@@ -31,10 +31,12 @@ function App() {
         </Helmet>
        
         <br />
-        <CardsContext.Provider value={{searchedUsers, updatedCardList}}>
+        <CardsContext.Provider value={{searchedUsers, updatedCardList, users, setUsers}}>
         <Searcher
           searchedUsers={searchedUsers}
           setSearchedUsers={setSearchedUsers}
+          users={users}
+          setUsers={setUsers}
         />
       </CardsContext.Provider> 
         <h1>Business Cards:</h1>
